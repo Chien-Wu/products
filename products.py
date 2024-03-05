@@ -1,12 +1,15 @@
+import os
+
 #讀取檔案
 data = []
-with open("products.csv", "r", encoding = "utf-8") as f:
-	for line in f:
-		if "products name, products price" in line:
-			continue
-		s = line.strip().split(",")
-		data.append(s)
-print(data)
+if os.path.isfile("products.csv"):
+	with open("products.csv", "r", encoding = "utf-8") as f:
+		for line in f:
+			if "products name, products price" in line:
+				continue
+			s = line.strip().split(",")
+			data.append(s)
+		print(data)
 
 #讓使用者輸入
 while True:
